@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  padding: 32px 57px;
+  border-bottom: 1px solid #959393;
+  margin-bottom: 50px;
+}
+
+.header {
+  text-decoration: none;
+  display: block;
+  width: max-content;
+  vertical-align: middle;
+}
+
+.header__logo {
+  display: inline-block;
+  line-height: 40px;
+}
+
+.header__title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 48px;
+  display: inline-block;
+  line-height: 40px;
+  margin: 0;
+  padding: 0;
+  color: #000;
+}
+
+.header__title_color_pink {
+  color: #f49ec4;
+}
+
+.header__title_weight_light {
+  font-weight: 300;
+}

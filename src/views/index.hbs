@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="{{ meta.charset }}" />
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ meta.description }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{staticBasePath}}favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Gabriela|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ staticBasePath }}common-styles.css" />
+    <link rel="stylesheet" href="{{ staticBasePath }}quests.css" />
+</head>
+<body>
+{{> header }}
+<main>
+    {{> quests }}
+</main>
+</body>
+</html>
