@@ -11,13 +11,5 @@ module.exports = {
     port: process.env.PORT,
 
     // Статичное содержимое забираем из Surge
-    staticBasePath: `//${packageMeta.name}.surge.sh/`,
-
-    dbOptions: {
-        host: 'balarama.db.elephantsql.com',
-        port: 5432,
-        username: 'gxzwosbf',
-        password: 'zJ-JWCUdmOVHzsJw7BgirJXBVmY9VHmh',
-        database: 'gxzwosbf',
-    }
+    staticBasePath: `//${packageMeta.name}.surge.sh/`
 };
