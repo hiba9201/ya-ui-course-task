@@ -8,5 +8,15 @@
     ],
     "env": {
         "node": true
+    },
+    "rules": {
+        "quotes": ["error", "single"],
+        "no-console": ["error", { "allow":  ["warn", "error", "info"] }],
+        "no-alert": "error",
+        "curly": "error",
+        "eqeqeq": "error",
+        "block-spacing": "error",
+        "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+        "object-curly-spacing": ["error", "always"]
     }
 }
