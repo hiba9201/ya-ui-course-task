@@ -1,5 +1,5 @@
 import config from 'config';
-import {NextFunction as Next, Request, Response} from 'express';
+import { NextFunction as Next, Request, Response } from 'express';
 
 export default (req: Request, _res: Response, next: Next): void => {
     req.locals = {

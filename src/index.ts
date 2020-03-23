@@ -1,6 +1,6 @@
 import path from 'path';
 
-import express, {Request, Response, NextFunction as Next} from 'express';
+import express, { Request, Response, NextFunction as Next } from 'express';
 import config from 'config';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
@@ -8,8 +8,8 @@ import hbs from 'hbs';
 
 import routes from 'routes';
 import commonData from 'middlewares/common-data';
-import sequelize from 'db-init';
-import Angle from "./models/angle";
+import sequelize from 'storage/db-init';
+import { Angle } from 'storage/angle';
 
 const app = express();
 

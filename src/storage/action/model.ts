@@ -9,8 +9,8 @@ import {
     AutoIncrement,
     BelongsToMany
 } from 'sequelize-typescript';
-import Scene from './scene';
-import ActionScene from "./action-scene";
+import Scene from '../scene/model';
+import ActionScene from '../middle-tables/action-scene';
 
 @Table({
     timestamps: false,

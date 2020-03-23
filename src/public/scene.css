@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Gabriela|Roboto&display=swap');
-
 .scene {
   padding: 0 45px;
   margin-bottom: 100px;
@@ -35,8 +33,9 @@
 
 .scene__image {
   width: 100%;
-  height: 380px;
+  height: 55vh;
   object-fit: cover;
+  object-position: center;
 }
 
 .scene__description {

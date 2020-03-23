@@ -1,42 +1,29 @@
-import {Request, Response} from "express";
-import Scene from 'models/scene';
-import PageData from "./page-data";
-import Action from "../models/action";
-import Achievement from "../models/achievement";
-import Adventure from "../models/adventure";
+import { Request, Response } from 'express';
+import { ScenePageData } from './page-types';
+import { getSceneById } from 'storage/scene';
+import { error404 } from './errors';
+import { getAdventureById } from 'storage/adventure';
 
-export function sceneById(req: Request, res: Response): void {
-    const {meta, staticBasePath, title} = req.locals;
+export async function sceneById(req: Request, res: Response): Promise<void> {
+    const { meta, staticBasePath, title } = req.locals;
 
+    const scene = await getSceneById(Number(req.params.id));
 
-    Scene.findByPk(Number(req.params.id), {
-        attributes: ['image', 'description', 'adventureId', 'angle'],
-        include: [
-            {
-                model: Action,
-                attributes: ['text', 'nextSceneId']
-            },
-            {
-                model: Achievement,
-                attributes: ['image', 'description']
-            }
-        ]
+    if (!scene) {
+        error404(req, res);
 
-    })
-        .then(result => {
-            Adventure.findByPk(Number(result?.adventureId), {
-                attributes: ['startScene']
-            })
-                .then(quest => {
-                    const data: PageData = {
-                        meta,
-                        staticBasePath,
-                        title,
-                        scene: result || {},
-                        startSceneId: quest?.startScene || 1
-                    };
+        return;
+    }
 
-                    res.render('scene', data);
-                })
-        });
+    const quest = await getAdventureById(Number(scene.adventureId));
+
+    const data: ScenePageData = {
+        meta,
+        staticBasePath,
+        title,
+        scene: scene || {},
+        startSceneId: quest?.startScene || 0
+    };
+
+    res.render('scene', data);
 }

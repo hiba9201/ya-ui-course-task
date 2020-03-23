@@ -1,8 +1,8 @@
-import {Application} from 'express';
+import { Application } from 'express';
 
-import {error404} from 'controllers/errors';
-import {list, listByTag} from "./controllers/adventures";
-import {sceneById} from "./controllers/scenes";
+import { error404 } from 'controllers/errors';
+import { list, listByTag } from 'controllers/adventures';
+import { sceneById } from 'controllers/scenes';
 
 export default (app: Application): void => {
     app.get('/', list);

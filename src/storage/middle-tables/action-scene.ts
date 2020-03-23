@@ -1,6 +1,6 @@
-import {Column, ForeignKey, Model, Table} from "sequelize-typescript";
-import Action from "./action";
-import Scene from "./scene";
+import { Column, ForeignKey, Model, Table } from 'sequelize-typescript';
+import Action from '../action/model';
+import Scene from '../scene/model';
 
 @Table({
     timestamps: false,

@@ -9,8 +9,8 @@ import {
     BelongsToMany,
     Unique
 } from 'sequelize-typescript';
-import Adventure from "./adventure";
-import TagAdventure from "./tag-adventure";
+import Adventure from '../adventure/model';
+import TagAdventure from '../middle-tables/tag-adventure';
 
 @Table({
     timestamps: false,

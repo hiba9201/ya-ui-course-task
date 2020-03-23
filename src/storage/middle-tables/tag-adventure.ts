@@ -1,6 +1,6 @@
-import {Column, ForeignKey, Model, Table} from "sequelize-typescript";
-import Tag from "./tag";
-import Adventure from "./adventure";
+import { Column, ForeignKey, Model, Table } from 'sequelize-typescript';
+import Tag from '../tag/model';
+import Adventure from '../adventure/model';
 
 @Table({
     timestamps: false,

@@ -6,13 +6,13 @@ import {
     PrimaryKey,
     Table,
     AutoIncrement, BelongsToMany, ForeignKey, Default
-} from "sequelize-typescript";
-import Action from "./action";
-import Achievement from "./achievement";
-import AchievementScene from './achievement-scene';
-import ActionScene from './action-scene';
-import Adventure from "./adventure";
-import Angle from "./angle";
+} from 'sequelize-typescript';
+import Action from '../action/model';
+import Achievement from '../achievement/model';
+import AchievementScene from '../middle-tables/achievement-scene';
+import ActionScene from '../middle-tables/action-scene';
+import Adventure from '../adventure/model';
+import Angle from '../angle/model';
 
 @Table({
     timestamps: false,

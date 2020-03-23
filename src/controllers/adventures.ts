@@ -1,79 +1,44 @@
-import {Request, Response} from "express";
-import Adventure from "../models/adventure";
-import Tag from "../models/tag";
-import PageData from "./page-data";
-import {Op} from "sequelize";
+import { Request, Response } from 'express';
+import { QuestsPageData, QuestsWithTagPageData } from './page-types';
+import { getAdventuresByTag, getAllAdventures } from 'storage/adventure';
+import { getTagByEngName } from 'storage/tag';
+import { error404 } from './errors';
 
-export function list(req: Request, res: Response): void {
-    const {meta, staticBasePath, title} = req.locals;
+export async function list(req: Request, res: Response): Promise<void> {
+    const { meta, staticBasePath, title } = req.locals;
 
-    Adventure.findAll({
-        where: {
-            startScene: {
-                [Op.not]: null
-            }
-        },
-        include: [
-            {
-                model: Tag,
-                attributes: ['name', 'engName']
-            }
-        ],
-    })
-        .then(result => {
-            const data: PageData = {
-                meta,
-                staticBasePath,
-                title,
-                quests: result
-            };
+    const adventures = await getAllAdventures();
 
-            res.render('index', data);
-        });
+    const data: QuestsPageData = {
+        meta,
+        staticBasePath,
+        title,
+        quests: adventures
+    };
+
+    res.render('index', data);
 }
 
-export function listByTag(req: Request, res: Response): void {
-    const {meta, staticBasePath, title} = req.locals;
+export async function listByTag(req: Request, res: Response): Promise<void> {
+    const { meta, staticBasePath, title } = req.locals;
+    const tagParam = req.params.tag;
 
-    const tag = req.params.tag;
+    const adventures = await getAdventuresByTag(tagParam);
+    const ruTag = (await getTagByEngName(tagParam))?.name;
 
-    Adventure.findAll({
-        include: [
-            {
-                model: Tag,
-                attributes: ['name', 'engName']
-            }
-        ],
-        where: {
-            startScene: {
-                [Op.ne]: null
-            }
-        },
-    })
-        .then(result => {
-            let ruTag: string;
+    if (!ruTag) {
+        error404(req, res);
 
-            Tag.findOne({
-                attributes: ['name'],
-                where: {
-                    engName: tag
-                }
-            })
-                .then(tag => ruTag = tag?.name || '')
-                .then(() => {
-                    const filtered = result
-                        .filter(quest => quest.tags
-                            .some(tagElem => tagElem.engName === tag));
+        return;
+    }
 
-                    const data: PageData = {
-                        meta,
-                        staticBasePath,
-                        title,
-                        tag: ruTag,
-                        quests: filtered
-                    };
+    const data: QuestsWithTagPageData = {
+        meta,
+        staticBasePath,
+        title,
+        tag: ruTag,
+        quests: adventures
+    };
 
-                    res.render('tag', data);
-                });
-        })
+    res.render('tag', data);
 }
