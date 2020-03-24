@@ -15,12 +15,15 @@ header {
   text-decoration: none;
   display: block;
   width: max-content;
+  max-height: 57px;
   vertical-align: middle;
 }
 
 .header__logo {
   display: inline-block;
   line-height: 40px;
+  position: relative;
+  top: 4px;
 }
 
 .header__title {

@@ -9,4 +9,6 @@ module.exports = {
 
     // Статичное содержимое раздаём из приложение через express.static
     staticBasePath: '/',
+
+    dbUri: process.env.DB_URI
 };

@@ -11,5 +11,7 @@ module.exports = {
     port: process.env.PORT,
 
     // Статичное содержимое забираем из Surge
-    staticBasePath: `//${packageMeta.name}.surge.sh/`
+    staticBasePath: `//${packageMeta.name}.surge.sh/`,
+
+    dbUri: process.env.DB_URI
 };

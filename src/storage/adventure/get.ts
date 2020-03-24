@@ -1,5 +1,5 @@
-import Adventure from 'storage/adventure/model';
-import Tag from 'storage/tag/model';
+import { Adventure } from 'storage/adventure';
+import { Tag } from 'storage/tag';
 import { Op } from 'sequelize';
 
 export async function getAllAdventures(): Promise<object> {

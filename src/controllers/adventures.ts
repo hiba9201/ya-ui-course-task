@@ -27,9 +27,7 @@ export async function listByTag(req: Request, res: Response): Promise<void> {
     const ruTag = (await getTagByEngName(tagParam))?.name;
 
     if (!ruTag) {
-        error404(req, res);
-
-        return;
+        return error404(req, res);
     }
 
     const data: QuestsWithTagPageData = {

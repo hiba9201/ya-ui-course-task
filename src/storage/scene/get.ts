@@ -1,6 +1,6 @@
-import Action from '../action/model';
-import Achievement from '../achievement/model';
-import { Scene } from '.';
+import { Action } from 'storage/action';
+import { Achievement } from 'storage/achievement';
+import Scene from './model';
 
 export async function getSceneById(id: number): Promise<Scene | null> {
     return await Scene.findByPk(id, {

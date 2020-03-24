@@ -7,12 +7,11 @@ import {
     Table,
     AutoIncrement, BelongsToMany, ForeignKey, Default
 } from 'sequelize-typescript';
-import Action from '../action/model';
-import Achievement from '../achievement/model';
-import AchievementScene from '../middle-tables/achievement-scene';
-import ActionScene from '../middle-tables/action-scene';
-import Adventure from '../adventure/model';
-import Angle from '../angle/model';
+import { Action } from 'storage/action';
+import { Achievement } from 'storage/achievement';
+import { AchievementScene, ActionScene } from 'storage/middle-tables';
+import { Adventure } from 'storage/adventure';
+import { Angle } from 'storage/angle';
 
 @Table({
     timestamps: false,

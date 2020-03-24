@@ -1,6 +1,6 @@
 import { Column, ForeignKey, Model, Table } from 'sequelize-typescript';
-import Achievement from '../achievement/model';
-import Scene from '../scene/model';
+import { Achievement } from 'storage/achievement';
+import { Scene } from 'storage/scene';
 
 @Table({
     timestamps: false,

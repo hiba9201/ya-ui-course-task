@@ -7,9 +7,9 @@ import {
     AllowNull,
     AutoIncrement, ForeignKey, BelongsToMany
 } from 'sequelize-typescript';
-import Scene from '../scene/model';
-import Tag from '../tag/model';
-import TagAdventure from '../middle-tables/tag-adventure';
+import { Scene } from 'storage/scene';
+import { Tag } from 'storage/tag';
+import { TagAdventure } from 'storage/middle-tables';
 
 @Table({
     timestamps: false,

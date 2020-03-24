@@ -8,8 +8,8 @@ import {
     AutoIncrement,
     BelongsToMany
 } from 'sequelize-typescript';
-import Scene from '../scene/model';
-import AchievementScene from '../middle-tables/achievement-scene';
+import { Scene } from 'storage/scene';
+import { AchievementScene } from 'storage/middle-tables';
 
 @Table({
     timestamps: false,

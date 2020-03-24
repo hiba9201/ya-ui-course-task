@@ -10,9 +10,7 @@ export async function sceneById(req: Request, res: Response): Promise<void> {
     const scene = await getSceneById(Number(req.params.id));
 
     if (!scene) {
-        error404(req, res);
-
-        return;
+        return error404(req, res);
     }
 
     const quest = await getAdventureById(Number(scene.adventureId));
