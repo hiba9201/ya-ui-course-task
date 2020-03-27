@@ -1,0 +1,30 @@
+{{#if quests.length}}
+    <ul class="quests">
+        {{#each quests}}
+            <li class="quest">
+                <a class="quest__image-link" href="/scene/{{ startScene }}">
+                    {{#if image }}
+                        <img class="quest__image" src="{{ image }}" alt="{{ name }}">
+                    {{^}}
+                        <img class="quest__image"
+                             src="{{ staticBasePath }}/default-quest-image.png"
+                             alt="{{ name }}">
+                    {{/if}}
+                </a>
+                <div class="quest__info">
+                    <a class="quest__title" href="/scene/{{ startScene }}">{{ name }}</a>
+                    <p class="quest__description">{{ description }}</p>
+                    <ul class="tags">
+                        {{#each tags}}
+                            <li class="tag">
+                                <a class="tag__link" href="/tags/{{ engName }}">{{ name }}</a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </li>
+        {{/each}}
+    </ul>
+{{^}}
+    <p class="quest__title">Нет доступных квестов</p>
+{{/if}}
