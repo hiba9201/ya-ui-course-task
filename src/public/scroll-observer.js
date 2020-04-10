@@ -1,6 +1,6 @@
 let lastTitle;
 try {
-    lastTitle = questsElements.lastElementChild.lastElementChild.firstElementChild;
+    lastTitle = getLastTitle();
 } catch (e) {}
 
 
@@ -12,7 +12,7 @@ async function handleScroll() {
 }
 
 const scrollObserver = new IntersectionObserver(async entries => {
-    if (!state.finished && entries[0].isIntersecting) {
+    if (state.hasMore && entries[0].isIntersecting) {
         await handleScroll();
     }
 }, {

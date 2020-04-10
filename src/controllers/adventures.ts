@@ -3,12 +3,12 @@ import { QuestsPageData, QuestsWithTagPageData } from './page-types';
 import { getAdventuresByEngTag } from 'storage/adventure';
 import { getTagByEngName } from 'storage/tag';
 import { error404 } from './errors';
-import { getAdventuresWithOffsetLimit } from 'storage/adventure';
+import { getAdventures } from 'storage/adventure';
 
 export async function renderQuests(req: Request, res: Response): Promise<void> {
     const { meta, staticBasePath, title } = req.locals;
 
-    const adventures = await getAdventuresWithOffsetLimit(5);
+    const adventures = await getAdventures(5);
 
     const data: QuestsPageData = {
         meta,

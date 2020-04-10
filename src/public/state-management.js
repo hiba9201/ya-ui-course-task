@@ -1,9 +1,9 @@
 const questsElements = document.querySelector('#quests');
-const tags = document.getElementsByClassName('tag__link');
-const main = document.getElementsByTagName('main')[0];
+const tags = document.querySelectorAll('.tag__link');
+const main = document.querySelector('main');
 
 const state = {
-    finished: false,
+    hasMore: true,
     offset: 5,
     limit: 5
 };

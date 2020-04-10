@@ -3,23 +3,8 @@ import { Tag } from 'storage/tag';
 import { Op } from 'sequelize';
 import { Sequelize } from 'sequelize-typescript';
 
-export async function getAllAdventures(): Promise<Adventure[]> {
-    return await Adventure.findAll({
-        where: {
-            startScene: {
-                [Op.not]: null
-            }
-        },
-        include: [
-            {
-                model: Tag,
-                attributes: ['name', 'engName']
-            }
-        ],
-    });
-}
 
-export async function getAdventuresWithOffsetLimit(limit = 10, offset = 0): Promise<Adventure[]> {
+export async function getAdventures(limit?: number, offset?: number): Promise<Adventure[]> {
     return await Adventure.findAll({
         where: {
             startScene: {
@@ -39,7 +24,7 @@ export async function getAdventuresWithOffsetLimit(limit = 10, offset = 0): Prom
 }
 
 export async function getAdventuresByEngTag(engTag: string): Promise<Adventure[]> {
-    const adventures = await getAllAdventures();
+    const adventures = await getAdventures();
 
     return adventures
         .filter(quest => quest.tags

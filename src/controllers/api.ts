@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
-import { getAdventuresByEngTag, getAdventuresWithOffsetLimit } from 'storage/adventure';
+import { getAdventuresByEngTag, getAdventures } from 'storage/adventure';
 
 
 export async function listAdventuresByLimitOffset(req: Request, res: Response): Promise<void> {
-    const limit = Number(req.query.limit) !== undefined ? Number(req.query.limit) : 10;
-    const offset = Number(req.query.offset) !== undefined ? Number(req.query.offset) : 0;
+    const limit = req.query.limit || 10;
+    const offset = req.query.offset || 0;
 
-    const quests = await getAdventuresWithOffsetLimit(limit, offset);
+    const quests = await getAdventures(limit, offset);
 
     res.send(quests);
 }

@@ -11,7 +11,6 @@ import { Action } from 'storage/action';
 import { Achievement } from 'storage/achievement';
 import { AchievementScene, ActionScene } from 'storage/middle-tables';
 import { Adventure } from 'storage/adventure';
-import { Angle } from 'storage/angle';
 
 @Table({
     timestamps: false,
@@ -43,10 +42,9 @@ class Scene extends Model<Scene> {
     })
     adventureId: number;
 
-    @ForeignKey(() => Angle)
     @Default('left-up')
-    @Column
-    angle: string;
+    @Column(DataType.ENUM('left-up', 'left-down', 'right-up', 'right-down'))
+    angle: 'left-up' | 'left-down' | 'right-up' | 'right-down';
 }
 
 export default Scene;

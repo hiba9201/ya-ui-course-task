@@ -1,2 +1,2 @@
-export { getAllAdventures, getAdventuresByEngTag, getAdventureById, getAdventuresWithOffsetLimit } from './get';
+export { getAdventuresByEngTag, getAdventureById, getAdventures } from './get';
 export { default as Adventure } from './model';

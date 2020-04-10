@@ -1,36 +1,46 @@
 async function resetQuests() {
-    fetch('/api/quests?limit=5&offset=0')
-        .then(data => data.json())
-        .then(quests => {
-            questsElements.textContent = '';
-            for (const quest of quests) {
-                questsElements.appendChild(createQuest(quest));
-            }
+    let quests;
+    try {
+        quests = await fetch('/api/quests?limit=5&offset=0')
+    } catch (e) {
+        return createAlert('При загрузке приключений произошла ошибка. Попробуйте обновить страницу');
+    }
+    const jsonQuests = await quests.json();
 
-            state.finished = false;
-            state.offset = 5;
-            lastTitle = questsElements.lastElementChild.lastElementChild.firstElementChild;
-            scrollObserver.observe(lastTitle);
-        })
-        .catch(() => createAlert('При загрузке квестов произошла ошибка. Попробуйте обновить страницу'));
+    questsElements.textContent = '';
+    for (const quest of jsonQuests) {
+        questsElements.appendChild(createQuest(quest));
+    }
+
+    state.hasMore = true;
+    state.offset = 5;
+    lastTitle = getLastTitle();
+    scrollObserver.observe(lastTitle);
 }
 
 async function fetchNextObservedQuests() {
-    fetch(`/api/quests?limit=${state.limit}&offset=${state.offset}`)
-        .then(data => data.json())
-        .then(quests => {
-            if (quests.length < 5) {
-                state.finished = true;
-            } else {
-                state.offset += 5;
-            }
+    let quests;
+    try {
+        quests = await fetch(`/api/quests?limit=${state.limit}&offset=${state.offset}`);
+    } catch (e) {
+        return createAlert('При загрузке приключений произошла ошибка. Попробуйте обновить страницу');
+    }
+    const jsonQuests = await quests.json();
 
-            for (const quest of quests) {
-                questsElements.appendChild(createQuest(quest));
-            }
+    if (jsonQuests.length < 5) {
+        state.hasMore = false;
+    } else {
+        state.offset += 5;
+    }
 
-            lastTitle = questsElements.lastElementChild.lastElementChild.firstElementChild;
-            scrollObserver.observe(lastTitle);
-        })
-        .catch(() => createAlert('При загрузке приключений произошла ошибка. Попробуйте обновить страницу'))
+    for (const quest of jsonQuests) {
+        questsElements.appendChild(createQuest(quest));
+    }
+
+    lastTitle = getLastTitle();
+    scrollObserver.observe(lastTitle);
+}
+
+function getLastTitle() {
+    return questsElements.querySelector('.quest:last-child .quest__title');
 }
