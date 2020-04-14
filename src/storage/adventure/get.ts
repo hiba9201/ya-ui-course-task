@@ -1,14 +1,19 @@
 import { Adventure } from 'storage/adventure';
 import { Tag } from 'storage/tag';
 import { Op } from 'sequelize';
+import { Sequelize } from 'sequelize-typescript';
 
-export async function getAllAdventures(): Promise<object> {
+
+export async function getAdventures(limit?: number, offset?: number): Promise<Adventure[]> {
     return await Adventure.findAll({
         where: {
             startScene: {
                 [Op.not]: null
             }
         },
+        order: Sequelize.col('id'),
+        limit,
+        offset,
         include: [
             {
                 model: Tag,
@@ -18,20 +23,8 @@ export async function getAllAdventures(): Promise<object> {
     });
 }
 
-export async function getAdventuresByTag(engTag: string): Promise<object> {
-    const adventures = await Adventure.findAll({
-        include: [
-            {
-                model: Tag,
-                attributes: ['name', 'engName']
-            }
-        ],
-        where: {
-            startScene: {
-                [Op.ne]: null
-            }
-        },
-    });
+export async function getAdventuresByEngTag(engTag: string): Promise<Adventure[]> {
+    const adventures = await getAdventures();
 
     return adventures
         .filter(quest => quest.tags

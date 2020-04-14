@@ -8,8 +8,7 @@ import hbs from 'hbs';
 
 import routes from 'routes';
 import commonData from 'middlewares/common-data';
-import sequelize from 'storage/db-init';
-import { Angle } from 'storage/angle';
+import { initDatabase } from 'storage/db-init';
 
 const app = express();
 
@@ -41,25 +40,8 @@ app.use((err: Error, _req: Request, res: Response, _next: Next) => {
 
 app.use(commonData);
 
-const db = sequelize;
-
 (async (): Promise<void> => {
-    await db.sync({ force: false });
-    await db.model(Angle).sync( { force: true });
-    await Angle.bulkCreate([
-        {
-            angle: 'left-up'
-        },
-        {
-            angle: 'left-down'
-        },
-        {
-            angle: 'right-up'
-        },
-        {
-            angle: 'right-down'
-        }
-    ]);
+    await initDatabase();
 
     hbs.registerPartials(partialsDir, () => {
         routes(app);

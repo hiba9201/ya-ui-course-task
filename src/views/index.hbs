@@ -4,7 +4,7 @@
     <meta charset="{{ meta.charset }}" />
     <title>{{ title }}</title>
     <meta name="description" content="{{ meta.description }}" />
-    <link rel="shortcut icon" type="image/x-icon" href="{{staticBasePath}}favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ staticBasePath }}favicon.ico"/>
     <link rel="stylesheet" href="{{ staticBasePath }}common-styles.css" />
     <link rel="stylesheet" href="{{ staticBasePath }}quests.css" />
 </head>
@@ -13,5 +13,12 @@
 <main>
     {{> quests }}
 </main>
+
+
+<script src="{{ staticBasePath }}state-management.js"></script>
+<script src="{{ staticBasePath }}quests.js"></script>
+<script src="{{ staticBasePath }}tags.js"></script>
+<script src="{{ staticBasePath }}element-creating.js"></script>
+<script src="{{ staticBasePath }}scroll-observer.js"></script>
 </body>
 </html>
