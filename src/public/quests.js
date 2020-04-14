@@ -12,8 +12,8 @@ async function resetQuests() {
         questsElements.appendChild(createQuest(quest));
     }
 
-    state.hasMore = true;
-    state.offset = 5;
+    state.offset = jsonQuests.length;
+    state.hasMore = jsonQuests.length === state.limit;
     lastTitle = getLastTitle();
     scrollObserver.observe(lastTitle);
 }
@@ -27,7 +27,7 @@ async function fetchNextObservedQuests() {
     }
     const jsonQuests = await quests.json();
 
-    if (jsonQuests.length < 5) {
+    if (jsonQuests.length < state.limit) {
         state.hasMore = false;
     } else {
         state.offset += 5;

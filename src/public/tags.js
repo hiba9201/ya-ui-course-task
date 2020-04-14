@@ -1,14 +1,17 @@
 async function updateTagQuests(engName) {
-    fetch(`/api/quests/${engName}`)
-        .then(data => data.json())
-        .then(quests => {
-            questsElements.textContent = '';
+    let res;
+    try {
+        res = await fetch(`/api/quests/${engName}`);
+    } catch (e) {
+        return createAlert('При загрузке квестов произошла ошибка. Попробуйте обновить страницу');
+    }
 
-            for (const quest of quests) {
-                questsElements.appendChild(createQuest(quest));
-            }
-        })
-        .catch(() => createAlert('При загрузке квестов произошла ошибка. Попробуйте обновить страницу'));
+    const quests = await res.json();
+    questsElements.textContent = '';
+
+    for (const quest of quests) {
+        questsElements.appendChild(createQuest(quest));
+    }
 }
 
 function addClickEventOnTag(tag) {
