@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400|Gabriela&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin: 0 99px;
+}
+
+header {
+  padding: 32px 60px;
+  border-bottom: 1px solid #959393;
+  margin-bottom: 50px;
+}
+
+.main_display_none {
+  display: none;
+}
+
+.header {
+  text-decoration: none;
+  display: block;
+  width: max-content;
+  max-height: 57px;
+  vertical-align: middle;
+}
+
+.header__logo {
+  display: inline-block;
+  line-height: 40px;
+  position: relative;
+  top: 4px;
+}
+
+.header__title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 48px;
+  display: inline-block;
+  line-height: 40px;
+  margin: 0;
+  padding: 0;
+  color: #000;
+}
+
+.header__title_color_pink {
+  color: #f49ec4;
+}
+
+.header__title_weight_light {
+  font-weight: 300;
+}
