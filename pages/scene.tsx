@@ -16,7 +16,7 @@ function SceneMain(props: { sceneId: string } ) {
                 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
             </Head>
             <Header />
-            <Scene id={ sceneId } />
+            <Scene id={sceneId} />
         </React.Fragment>
     );
 }

@@ -38,21 +38,21 @@ function Scene(props: SceneProps) {
                             <>
                                 <img className={styles.image} src={sceneData.scene.image} alt="Сцена"/>
                                 <p className={[styles[`text_${sceneData.scene.angle}`],
-                                    styles.text, styles.color_white, styles.margin_none].join(' ')}>
+                                    styles.text, 'color_white margin_none'].join(' ')}>
                                     {sceneData.scene.description}
                                 </p>
                             </>
                         ) : (
                             <p className={[styles['text_left-up'], styles.text,
-                                styles.color_black, styles.margin_none].join(' ')}>
+                                'color_black margin_none'].join(' ')}>
                                 {sceneData.scene.description}
                             </p>
                         )}
                     </div>
-                    <ul className={[styles.achievements, styles.padding_none].join(' ')}>
-                        {sceneData.scene.achievements.map(achievement => <Achievement {...achievement}/>)}
+                    <ul className={'padding_none'}>
+                        {sceneData.scene.achievements.map(achievement => <Achievement { ...achievement }/>)}
                     </ul>
-                    <ul className={[styles.actions, styles.textAlign_center, styles.padding_none].join(' ')}>
+                    <ul className={[styles.actions, 'text-align_center padding_none'].join(' ')}>
                         {sceneData.scene.actions.length ? (
                             <>
                                 {sceneData.scene.actions.map(action => <Action {...action} />)}

@@ -9,45 +9,30 @@ main {
   margin: 0 99px;
 }
 
-header {
-  padding: 32px 60px;
-  border-bottom: 1px solid #959393;
-  margin-bottom: 50px;
-}
-
-.main_display_none {
-  display: none;
-}
-
-.header {
-  text-decoration: none;
-  display: block;
-  width: max-content;
-  max-height: 57px;
-  vertical-align: middle;
-}
-
-.header__logo {
-  display: inline-block;
-  line-height: 40px;
-  position: relative;
-  top: 4px;
-}
-
-.header__title {
-  font-family: 'Roboto', sans-serif;
-  font-size: 48px;
-  display: inline-block;
-  line-height: 40px;
-  margin: 0;
+.padding_none {
   padding: 0;
+}
+
+.margin_none {
+  margin: 0;
+}
+
+.listStyle_none {
+  list-style: none;
+}
+
+.a_no-decor {
+  text-decoration: none;
+}
+
+.color_black {
   color: #000;
 }
 
-.header__title_color_pink {
-  color: #f49ec4;
+.color_white {
+  color: #fff;
 }
 
-.header__title_weight_light {
-  font-weight: 300;
+.text-align_center {
+  text-align: center;
 }

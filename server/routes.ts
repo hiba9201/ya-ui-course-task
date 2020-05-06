@@ -9,7 +9,7 @@ export default (app: Application): void => {
     //pages
     app.get('/', (_req, res) => res.renderPage('/index'));
 
-    app.get('/tags/:tag', (req, res) => res.renderPage('/tag', { tag: req.params.tag }));
+    app.get('/tags/:tag', (req, res) => res.renderPage('/tags', { tag: req.params.tag }));
 
     app.get('/scene/:id', (req, res) => res.renderPage('/scene', { id: req.params.id }));
 

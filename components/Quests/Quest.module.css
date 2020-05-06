@@ -21,12 +21,12 @@
   margin-bottom: 0;
 }
 
-.image-link,
+.imageLink,
 .info {
   display: inline-block;
 }
 
-.image-link {
+.imageLink {
   width: 200px;
   margin-right: 34px;
 }

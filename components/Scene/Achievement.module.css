@@ -1,0 +1,35 @@
+.achievement {
+  margin-bottom: 30px;
+  font-family: 'Gabriela', serif;
+  width: 48%;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.achievement:nth-child(2n - 1) {
+  margin-right: 3%;
+}
+
+.image {
+  height: 147px;
+  width: 147px;
+  min-width: 147px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.info {
+  vertical-align: top;
+  margin-left: 20px;
+}
+
+.notify {
+  font-size: 30px;
+}
+
+.text {
+  font-size: 48px;
+  margin-top: 10px;
+}

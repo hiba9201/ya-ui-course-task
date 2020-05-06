@@ -9,7 +9,7 @@ function Modal(props: { message: string }) {
     const modal: RefObject<HTMLDivElement> = createRef();
 
     const close = () => {
-        modal?.current?.classList.add('main_display_none');
+        modal?.current?.classList.add(styles.closed);
     };
 
     return (

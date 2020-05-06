@@ -5,7 +5,7 @@ export interface QuestProps {
     image: string | null;
     name: string;
     description: string;
-    tags: Array<Tag>;
+    tags: Tag[];
 }
 
 interface ObserverOptions {
@@ -20,7 +20,7 @@ export interface Tag {
 }
 
 export interface TagsProps {
-    tags: Array<Tag>;
+    tags: Tag[];
 }
 
 export interface SceneProps {
@@ -44,8 +44,8 @@ interface SceneData {
     description: string;
     adventureId: number;
     angle: string;
-    achievements: Array<AchievementData>;
-    actions: Array<ActionData>;
+    achievements: AchievementData[];
+    actions: ActionData[];
 }
 
 export class SceneJson {

@@ -1,0 +1,38 @@
+.container {
+  padding: 32px 60px;
+  border-bottom: 1px solid #959393;
+  margin-bottom: 50px;
+}
+
+.header {
+  text-decoration: none;
+  display: block;
+  width: max-content;
+  max-height: 57px;
+  vertical-align: middle;
+}
+
+.logo {
+  display: inline-block;
+  line-height: 40px;
+  position: relative;
+  top: 4px;
+}
+
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 48px;
+  display: inline-block;
+  line-height: 40px;
+  margin: 0;
+  padding: 0;
+  color: #000;
+}
+
+.title_accent_color {
+  color: #f49ec4;
+}
+
+.title_weight_light {
+  font-weight: 300;
+}

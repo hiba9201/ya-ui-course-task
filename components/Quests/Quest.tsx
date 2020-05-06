@@ -12,36 +12,34 @@ function Quest(props: QuestProps) {
     const { startScene, image, name, description, tags, options } = props;
 
     return (
-        <li className={ styles.quest }>
+        <li className={styles.quest}>
             <Link href={{ pathname: '/scene', query: { id: startScene } }}
                   as={`/scene/${ startScene }`}>
-                <a className={ styles['image-link'] }>
-                    {image ?
-                        <img className={ styles.image } src={ image } alt={ name } /> :
-                        <img className={ styles.image } src='/default-quest-image.png' alt={ name } />}
+                <a className={styles.imageLink}>
+                    <img className={styles.image} src={image ? image : '/default-quest-image.png'} alt={ name } />
                 </a>
             </Link>
-            <div className={ styles.info }>
+            <div className={styles.info}>
                 {options ? (
                     <Observer {...options}>
                         <Link href={{ pathname: '/scene', query: { id: startScene } }}
                               as={`/scene/${ startScene }`}>
-                            <a className={ styles.title }>
-                                { name }
+                            <a className={styles.title}>
+                                {name}
                             </a>
                         </Link>
                     </Observer>
                 ) : (
                     <Link href={{ pathname: '/scene', query: { id: startScene } }}
-                          as={`/scene/${ startScene }`}>
-                        <a className={ styles.title }>
-                            { name }
+                          as={`/scene/${startScene}`}>
+                        <a className={styles.title}>
+                            {name}
                         </a>
                     </Link>
                 )}
 
-                <p className={ styles.description }>{ description }</p>
-                <Tags tags={ tags } />
+                <p className={styles.description}>{description}</p>
+                <Tags tags={tags} />
             </div>
         </li>
     );
