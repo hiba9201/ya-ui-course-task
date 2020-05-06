@@ -7,7 +7,7 @@ import styles from './Quest.module.css';
 import Modal from '../Modal/Modal';
 
 enum FetchActions {
-    FETCH_MORE,
+    INCREASE_OFFSET,
     NO_MORE
 }
 
@@ -21,7 +21,7 @@ function reducer(state: FetchingState, action: { type: FetchActions }) {
     switch (action.type) {
         case FetchActions.NO_MORE:
             return { ...state, hasMore: false };
-        case FetchActions.FETCH_MORE:
+        case FetchActions.INCREASE_OFFSET:
             return { ...state, offset: state.offset + state.limit };
         default:
             throw new Error('Unknown action type!');
@@ -94,7 +94,7 @@ function Quests(props: { fetchLink: string; tag?: string }) {
                 if (questsData.length < state.limit) {
                     dispatch({ type: FetchActions.NO_MORE });
                 } else {
-                    dispatch({ type: FetchActions.FETCH_MORE });
+                    dispatch({ type: FetchActions.INCREASE_OFFSET });
                 }
             }, () => setQuests([]))
             .finally(() => setFetching(false));
