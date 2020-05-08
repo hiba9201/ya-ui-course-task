@@ -16,22 +16,26 @@ function Scene(props: SceneProps) {
 
     useEffect(() => {
         setFetching(true);
-        fetch(`/api/scene/${id}`)
-            .then(scene => {
-                if (scene.status !== 200) {
-                    setError(scene.statusText);
-                }
 
-                return scene.json();
-            })
-            .then(scene => setScene(scene), () => setScene(new SceneJson()))
-            .finally(() => setFetching(false));
+        async function fetchScene() {
+            const receivedScene = await fetch(`/api/scene/${id}`);
+            if (receivedScene.status !== 200) {
+                setError(receivedScene.statusText);
+                setScene(new SceneJson());
+            } else {
+                setScene(await receivedScene.json());
+            }
+        }
+
+        fetchScene();
+
+        setFetching(false);
     }, [id]);
 
     return (
         <main className={styles.scene}>
             {error && <Modal message={error}/>}
-            {!fetching ? sceneData.scene ? (
+            {!fetching && sceneData.scene && (
                 <>
                     <div className={styles.description}>
                         {sceneData.scene.image ? (
@@ -62,9 +66,11 @@ function Scene(props: SceneProps) {
                         )}
                     </ul>
                 </>
-            ) : (
+            )}
+            {!fetching && !sceneData.scene &&(
                 <p className={styles.text}>Сцены не будет :(</p>
-            ) : (
+            )}
+            {fetching && (
                 <p>Загрузка...</p>
             )}
         </main>
