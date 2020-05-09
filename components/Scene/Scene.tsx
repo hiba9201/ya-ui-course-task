@@ -25,11 +25,10 @@ function Scene(props: SceneProps) {
             } else {
                 setScene(await receivedScene.json());
             }
+            setFetching(false);
         }
 
         fetchScene();
-
-        setFetching(false);
     }, [id]);
 
     return (
@@ -67,7 +66,7 @@ function Scene(props: SceneProps) {
                     </ul>
                 </>
             )}
-            {!fetching && !sceneData.scene &&(
+            {!fetching && !sceneData.scene && (
                 <p className={styles.text}>Сцены не будет :(</p>
             )}
             {fetching && (

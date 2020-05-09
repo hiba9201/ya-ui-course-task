@@ -75,12 +75,12 @@ function Quests(props: { fetchLink: string; tag?: string }) {
                 const tagJson = await receivedTag.json();
                 setRuTag(tagJson.ruTag);
             }
+
+            dispatch({ type: FetchActions.CLEAR_QUESTS });
+            setFetching(true);
         }
 
         fetchTag();
-
-        dispatch({ type: FetchActions.CLEAR_QUESTS });
-        setFetching(true);
     }, [tag]);
 
     useEffect(() => {
@@ -103,10 +103,11 @@ function Quests(props: { fetchLink: string; tag?: string }) {
                     dispatch({ type: FetchActions.INCREASE_OFFSET });
                 }
             }
+
+            setFetching(false);
         }
 
         fetchQuests();
-        setFetching(false);
     }, [fetching]);
 
     return (
