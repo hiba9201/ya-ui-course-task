@@ -1,0 +1,28 @@
+.tags {
+  padding: 0;
+  margin: 0;
+}
+
+.tag {
+  list-style: none;
+  display: inline-block;
+  margin: 0 8px 30px 0;
+}
+
+.tag:last-child {
+  margin: 0;
+}
+
+.tag__link {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 18px;
+  background-color: #b3b3b3;
+  border-radius: 4px;
+}
+
+.tag__link::before {
+  content: '#';
+}

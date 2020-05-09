@@ -1,0 +1,53 @@
+.scene {
+  padding: 0 45px;
+  margin-bottom: 100px;
+}
+
+.image {
+  width: 100%;
+  height: 55vh;
+  object-fit: cover;
+  object-position: center;
+}
+
+.description {
+  position: relative;
+  margin-bottom: 50px;
+  width: 100%;
+  min-height: 200px;
+}
+
+.text {
+  white-space: pre-wrap;
+  font-family: 'Gabriela', serif;
+  font-size: 22px;
+  position: absolute;
+  width: 50%;
+}
+
+.text_left-up {
+  top: 30px;
+  left: 30px;
+}
+
+.text_left-down {
+  bottom: 30px;
+  left: 30px;
+}
+
+.text_right-up {
+  top: 30px;
+  right: 30px;
+  text-align: right;
+}
+
+.text_right-down {
+  bottom: 30px;
+  right: 30px;
+  text-align: right;
+}
+
+.actions {
+  margin-top: 30px;
+  text-wrap: normal;
+}

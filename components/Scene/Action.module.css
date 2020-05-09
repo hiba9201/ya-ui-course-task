@@ -1,0 +1,19 @@
+.action {
+  display: inline-block;
+  margin-right: 52px;
+  padding: 15px 0;
+  line-height: 3em;
+}
+
+.action:last-child {
+  margin-right: 0;
+}
+
+.button {
+  padding: 15px 35px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 34px;
+  text-decoration: none;
+  background-color: #555;
+  border-radius: 4px;
+}
