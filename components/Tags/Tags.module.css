@@ -13,7 +13,7 @@
   margin: 0;
 }
 
-.tag__link {
+.link {
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   color: #fff;
@@ -23,6 +23,12 @@
   border-radius: 4px;
 }
 
-.tag__link::before {
+.link::before {
   content: '#';
+}
+
+@media screen and (max-width: 568px) {
+  .link {
+    padding: 8px 16px;
+  }
 }

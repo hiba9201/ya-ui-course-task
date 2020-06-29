@@ -33,3 +33,27 @@
   font-size: 48px;
   margin-top: 10px;
 }
+
+@media screen and (max-width: 568px) {
+  .achievement {
+    width: 100%;
+  }
+
+  .achievement:last-child {
+    margin-bottom: 0;
+  }
+
+  .image {
+    min-width: 100px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .notify {
+    font-size: 25px;
+  }
+
+  .text {
+    font-size: 35px;
+  }
+}

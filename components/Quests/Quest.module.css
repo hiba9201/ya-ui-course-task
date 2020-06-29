@@ -59,3 +59,24 @@
   font-size: 18px;
   line-height: 1.8em;
 }
+
+@media screen and (max-width: 568px) {
+  .quest {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+
+  .info {
+    width: 100%;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+  }
+
+  .imageLink {
+    width: 100%;
+  }
+}

@@ -17,3 +17,15 @@
   background-color: #555;
   border-radius: 4px;
 }
+
+@media screen and (max-width: 568px) {
+  .action {
+    line-height: 2em;
+    margin-right: 25px;
+  }
+
+  .button {
+    padding: 10px 20px;
+    font-size: 20px;
+  }
+}

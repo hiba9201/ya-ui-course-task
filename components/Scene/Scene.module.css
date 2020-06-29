@@ -1,5 +1,4 @@
 .scene {
-  padding: 0 45px;
   margin-bottom: 100px;
 }
 
@@ -22,32 +21,90 @@
   font-family: 'Gabriela', serif;
   font-size: 22px;
   position: absolute;
-  width: 50%;
+  max-width: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  margin-bottom: 4px;
 }
 
 .text_left-up {
-  top: 30px;
-  left: 30px;
+  top: 0;
+  left: 0;
+  border-bottom-right-radius: 5px;
 }
 
 .text_left-down {
-  bottom: 30px;
-  left: 30px;
+  bottom: 0;
+  left: 0;
+  border-top-right-radius: 5px;
 }
 
 .text_right-up {
-  top: 30px;
-  right: 30px;
+  top: 0;
+  right: 0;
   text-align: right;
+  border-bottom-left-radius: 5px;
 }
 
 .text_right-down {
-  bottom: 30px;
-  right: 30px;
+  bottom: 0;
+  right: 0;
   text-align: right;
+  border-top-left-radius: 5px;
 }
 
 .actions {
   margin-top: 30px;
   text-wrap: normal;
+}
+
+@media screen and (max-width: 568px) {
+  .scene {
+    margin-bottom: 0;
+  }
+
+  .image {
+    height: 300px;
+  }
+
+  .description {
+    margin-bottom: 0;
+  }
+
+  .actions {
+    margin-top: 20px;
+  }
+
+  .text {
+    font-size: 16px;
+    max-width: 80%;
+    padding: 15px;
+    border-radius: 0 5px 0 0;
+  }
+
+  .text_left-up {
+    top: initial;
+    bottom: 0;
+    left: 0;
+  }
+
+  .text_left-down {
+    bottom: 0;
+    left: 0;
+  }
+
+  .text_right-up {
+    top: initial;
+    right: initial;
+    bottom: 0;
+    left: 0;
+    text-align: 0;
+  }
+
+  .text_right-down {
+    bottom: 0;
+    right: initial;
+    left: 0;
+    text-align: left;
+  }
 }

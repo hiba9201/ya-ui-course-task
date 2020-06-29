@@ -6,7 +6,7 @@ body {
 }
 
 main {
-  margin: 0 99px;
+  margin: 0 10%;
 }
 
 .padding_none {
@@ -35,4 +35,10 @@ main {
 
 .text-align_center {
   text-align: center;
+}
+
+@media screen and (max-width: 568px) {
+  main {
+    margin: 0 5%;
+  }
 }
